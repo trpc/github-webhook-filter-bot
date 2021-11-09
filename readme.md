@@ -1,10 +1,10 @@
 # GitHub Webhooks without bots
 
-Receive webhooks from GitHub and filter out bots.
+Receives webhooks from GitHub and filter out bots, then proxies it to your destination.
 
 ## How it works
 
-It takes a webhook payload and see if the `sender` includes `[bot]` and ignores it if it does
+It takes a webhook payload, checks if the `sender` includes `[bot]`, and ignores it if it does
 
 ## How to use
 
