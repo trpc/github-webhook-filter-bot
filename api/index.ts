@@ -45,10 +45,10 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       return;
     }
     console.error("❌ Status", result.status);
-    res.status(500).end();
+    res.status(502).end();
     return;
   } catch (err) {
-    res.status(500).end();
+    res.status(502).end();
     return;
   }
 };
