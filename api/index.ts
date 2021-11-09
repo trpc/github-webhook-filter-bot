@@ -34,7 +34,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
     const result = await fetch(target, {
       headers: {
-        "content-type": "application/json",
+        ...(req.headers as any),
       },
       body,
       method: req.method,
