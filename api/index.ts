@@ -32,10 +32,15 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     console.log("OK: sending it to", target);
     const body = JSON.stringify(json);
 
+    const headers: Record<string, string> = {};
+    for (const [key, value] of Object.entries(req.headers)) {
+      console.log("key", key, "value", value);
+      if (typeof value === "string") {
+        headers[key] = value;
+      }
+    }
     const result = await fetch(target, {
-      headers: {
-        ...(req.headers as any),
-      },
+      headers,
       body,
       method: req.method,
     });
