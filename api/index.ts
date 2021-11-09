@@ -36,15 +36,15 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       "content-type": "application/json",
     };
     for (const [key, value] of Object.entries(req.headers)) {
-      console.log("key", key, "value", value);
       if (
         typeof value === "string" &&
-        (key.includes("github") || key.includes("user-agent"))
+        (key.includes("github") ||
+          key.includes("user-agent") ||
+          key.includes("authorization"))
       ) {
         headers[key] = value;
       }
     }
-    console.log("headers", headers);
     const result = await fetch(target, {
       headers,
       body,
