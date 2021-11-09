@@ -8,7 +8,6 @@ It takes a webhook payload, checks if the `sender` includes `[bot]`, and ignores
 
 ## How to use
 
-1. Get a URI-encoded version of your webhook target
-   1. Open web inspector
-   2. Run `copy(encodeURIComponent('YOUR_URL_HERE'))`
-1. Set Webhook target in GitHub as `https://github-webhook-filter-bot.trpc.io/api/?target=YOUR_RESULT_FROM_ABOVE`
+1. Open web inspector
+2. Run `copy('https://github-webhook-filter-bot.trpc.io/api/?target=' + encodeURIComponent('YOUR_URL_HERE'))`
+3. Paste the URL from your clipboard into GitHub
