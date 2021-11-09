@@ -1,18 +1,6 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
 import fetch from "node-fetch";
 
-// function getBody(req: IncomingMessage): Promise<string> {
-//   return new Promise((resolve) => {
-//     let body = "";
-//     req.on("data", (chunk) => {
-//       body += chunk;
-//     });
-//     req.on("end", () => {
-//       resolve(body);
-//     });
-//   });
-// }
-
 export default async (req: VercelRequest, res: VercelResponse) => {
   const json = req.body;
   if (json == null || typeof json !== "object") {
@@ -57,12 +45,10 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       return;
     }
     console.error("❌ Status", result.status);
-    res.statusCode = 500;
-    res.end();
+    res.status(500).end();
     return;
   } catch (err) {
-    res.statusCode = 500;
-    res.end();
+    res.status(500).end();
     return;
   }
 };
