@@ -10,7 +10,8 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
   const target = req.query.target as string;
 
-  if (json?.sender?.login?.includes("[bot]")) {
+  const login = json?.sender?.login || "";
+  if (login.includes("[bot]") || login.endsWith("-bot")) {
     console.log("👻 skip: included [bot]");
     res.status(200).end();
     return;
